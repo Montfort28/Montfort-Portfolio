@@ -1,28 +1,42 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
   const skills = [
-    { 
-      category: "Frontend", 
-      items: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "React.js", "Vue.js"] 
+    {
+      category: "Frontend",
+      items: ["HTML", "CSS", "JavaScript", "Typescript", "Tailwind CSS", "React.js", "Vue.js", "Next.js"]
     },
-    { 
-      category: "Backend", 
-      items: ["Node.js", "Express.js", "Python", "MySQL"] 
+    {
+      category: "Backend",
+      items: ["Node.js", "Express.js", "Python", "MySQL", "PostgreSQL"]
     },
-    { 
-      category: "Tools", 
-      items: ["Git/GitHub", "VS Code", "Figma"] 
+    {
+      category: "Tools",
+      items: ["Git/GitHub", "VS Code", "Figma"]
     },
-    { 
-      category: "Soft Skills", 
-      items: ["Problem-solving", "Teamwork", "Communication", "Adaptability"] 
+    {
+      category: "Soft Skills",
+      items: ["Problem-solving", "Teamwork", "Communication", "Adaptability"]
     }
   ];
 
   const hobbies = [
     {
-      name: "Reading Novels",
+      name: "Reading Books",
       icon: "/images/hobbies/reading.png",
       description: "I enjoy immersing myself in fiction, particularly fantasy and science fiction novels."
     },
@@ -39,40 +53,40 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-[#121212]">
+    <section id="about" className="pt-4 bg-[#121212]">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* About Me Content */}
           <div className="w-full md:w-3/5">
-            <h2 className="text-3xl font-bold mb-6">About Me</h2>
-            <div className="w-20 h-1 bg-blue-500 mb-8"></div>
-            
+            <h2 className="text-4xl font-bold mb-4">About Me</h2>
+            <div className="w-20 h-1 bg-blue-500 mb-4"></div>
+
             <div className="space-y-6 text-gray-300">
               <p>
-                I'm a final-year Software Engineering student at INES Ruhengeri in Rwanda, 
-                set to graduate in October 2025. I'm passionate about creating elegant, efficient 
+                I'm a final-year Software Engineering student at INES Ruhengeri in Rwanda,
+                set to graduate in October 2025. I'm passionate about creating elegant, efficient
                 web applications that deliver exceptional user experiences.
               </p>
-              
+
               <p>
-                My journey in tech started with a curiosity about how websites work, which led me to 
-                explore web development. I quickly fell in love with both the creative and technical 
+                My journey in tech started with a curiosity about how websites work, which led me to
+                explore web development. I quickly fell in love with both the creative and technical
                 aspects of coding, and I've been honing my skills ever since.
               </p>
-              
+
               <p>
-                I specialize in Full-Stack Development with a stronger focus on frontend technologies. 
-                I enjoy bringing designs to life with clean, responsive interfaces and am constantly 
+                I specialize in Full-Stack Development with a stronger focus on frontend technologies.
+                I enjoy bringing designs to life with clean, responsive interfaces and am constantly
                 learning new technologies to expand my skillset.
               </p>
-              
+
               <p>
-                Outside of coding, I'm passionate about leadership development and recently participated 
-                in the Beyond Success program by Dr. John C. Maxwell, which has helped me develop valuable 
+                Outside of coding, I'm passionate about leadership development and recently participated
+                in the Beyond Success program by Dr. John C. Maxwell, which has helped me develop valuable
                 team collaboration and communication skills.
               </p>
             </div>
-            
+
             {/* Education */}
             <div className="mt-12">
               <h3 className="text-xl font-bold mb-4">Education</h3>
@@ -86,7 +100,70 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
+            {/* Experience */}
+            <div className="mt-8">
+              <h3 className="text-xl font-bold mb-4">Experience</h3>
+              <div className="p-5 bg-[#1E1E1E] rounded-lg space-y-4">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h4 className="font-semibold">Software Engineering Intern</h4>
+                    <p className="text-gray-400">Bouletteproof</p>
+                  </div>
+                  <span className="text-blue-500">May - Aug 2025</span>
+                </div>
+
+                <div className="text-gray-300 space-y-3">
+                  <p>
+                    Actively contributed to the development of BP Ticket, a web-based support ticket management
+                    system designed to streamline client support for BouletteProof's software products.
+                  </p>
+                  <p>
+                    Collaborated in a team of 3 interns under the guidance of senior engineers, following Agile
+                    methodology with weekly sprints and regular code reviews.
+                  </p>
+                  <p>
+                    Worked on core features including Google Sign-In authentication (OAuth 2.0), Slack integration for
+                    real-time alerts, and task creation in ClickUp for ticket escalation.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-gray-300 font-medium mt-4">Tech Stack:</p>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {[
+                      "Next.js",
+                      "React",
+                      "Node.js",
+                      "PostgreSQL",
+                      "OAuth 2.0",
+                      "Slack API",
+                      "ClickUp API",
+                      "Git"
+                    ].map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-blue-500 bg-opacity-10 text-blue-400 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="text-gray-300 mt-4">
+                  <p>Key Achievements:</p>
+                  <ul className="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                    <li>Implemented Google OAuth 2.0 authentication system</li>
+                    <li>Developed real-time Slack notification system</li>
+                    <li>Created automated ticket escalation through ClickUp API</li>
+                    <li>Practiced advanced Git workflows including rebase and merge strategies</li>
+                    <li>Contributed to delivering MVP within 8-week timeline</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             {/* Certifications */}
             <div className="mt-8">
               <h3 className="text-xl font-bold mb-4">Certifications</h3>
@@ -100,7 +177,7 @@ const About: React.FC = () => {
                     <span className="text-blue-500">2024</span>
                   </div>
                 </div>
-                
+
                 <div className="p-5 bg-[#1E1E1E] rounded-lg">
                   <div className="flex items-start justify-between">
                     <div>
@@ -115,48 +192,48 @@ const About: React.FC = () => {
 
             {/* Hobbies Section */}
             <div className="mt-12">
-  <h3 className="text-xl font-bold mb-6">Hobbies & Interests</h3>
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-    {hobbies.map((hobby, index) => (
-      <div
-        key={index}
-        className="p-6 bg-[#1E1E1E] rounded-xl transition-all duration-300 hover:bg-[#2A2A2A] hover:shadow-xl hover:scale-[1.03]"
-      >
-        <div className="flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-blue-500 p-4 mb-4 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-6">
-            <img
-              src={hobby.icon}
-              alt={hobby.name}
-              className="w-15 h-15 object-contain"
-              onError={(e) => {
-                e.currentTarget.src = `https://via.placeholder.com/48?text=${hobby.name[0]}`;
-              }}
-            />
-          </div>
-          <h4 className="font-semibold text-gray-200 text-lg mb-1">{hobby.name}</h4>
-          <p className="text-gray-400 text-sm">{hobby.description}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
+              <h3 className="text-xl font-bold mb-6">Hobbies & Interests</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {hobbies.map((hobby, index) => (
+                  <div
+                    key={index}
+                    className="p-6 bg-[#1E1E1E] rounded-xl transition-all duration-300 hover:bg-[#2A2A2A] hover:shadow-xl hover:scale-[1.03]"
+                  >
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-20 h-20 rounded-full bg-blue-500 p-4 mb-4 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-6">
+                        <img
+                          src={hobby.icon}
+                          alt={hobby.name}
+                          className="w-15 h-15 object-contain"
+                          onError={(e) => {
+                            e.currentTarget.src = `https://via.placeholder.com/48?text=${hobby.name[0]}`;
+                          }}
+                        />
+                      </div>
+                      <h4 className="font-semibold text-gray-200 text-lg mb-1">{hobby.name}</h4>
+                      <p className="text-gray-400 text-sm">{hobby.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
           </div>
-          
+
           {/* Skills Section */}
           <div className="w-full md:w-2/5">
             <div className="sticky top-24">
               <h2 className="text-3xl font-bold mb-6">My Skills</h2>
               <div className="w-20 h-1 bg-blue-500 mb-8"></div>
-              
+
               <div className="space-y-8">
                 {skills.map((skillGroup, index) => (
                   <div key={index}>
                     <h3 className="text-xl font-semibold mb-4 text-gray-200">{skillGroup.category}</h3>
                     <div className="flex flex-wrap gap-3">
                       {skillGroup.items.map((skill, i) => (
-                        <div 
-                          key={i} 
+                        <div
+                          key={i}
                           className="px-4 py-2 bg-[#1E1E1E] border border-gray-700 rounded-lg text-gray-300 hover:border-blue-500 transition-colors"
                         >
                           {skill}
@@ -166,7 +243,7 @@ const About: React.FC = () => {
                   </div>
                 ))}
               </div>
-              
+
               {/* Languages */}
               <div className="mt-10">
                 <h3 className="text-xl font-semibold mb-4 text-gray-200">Languages</h3>
@@ -180,7 +257,7 @@ const About: React.FC = () => {
                     </div>
                     <span className="text-gray-400">Fluent</span>
                   </div>
-                  
+
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Kinyarwanda</span>
                     <div className="flex space-x-1">

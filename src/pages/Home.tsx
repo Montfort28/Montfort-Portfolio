@@ -7,10 +7,19 @@ import Contact from '../components/Contact';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div className="relative">
       <Hero />
+
+      {/* Section Divider */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
       <About />
+
+      {/* Section Divider */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
       <Projects />
+
+      {/* Section Divider */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
       <Contact />
     </div>
   );

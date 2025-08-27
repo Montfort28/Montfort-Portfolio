@@ -1,8 +1,30 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import { IProject } from '../utils/data';
+import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const projectVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
   // Project data with GitHub links and live demo links
   const projects: IProject[] = [
     {
@@ -12,7 +34,7 @@ const Projects: React.FC = () => {
       image: "/portfolio.jpg",
       technologies: ["React.js", "Tailwind CSS", "TypeScript"],
       githubLink: "https://github.com/Montfort28/My-Portfolio",
-      liveLink: "https://portfolio-link.com" 
+      liveLink: "https://montfort-portfolio.vercel.app/"
     },
     {
       id: 2,
@@ -43,22 +65,26 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-[#121212]">
+    <section id="projects" className="pt-4 bg-[#121212]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on. Each project represents different 
-            skills and technologies in my development journey.
-          </p>
+        <div className="text-center mb-6">
+          <h2 className="text-4xl font-bold mb-4">Projects</h2>
+          <div className="w-20 h-1 bg-blue-500 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: true }}
+        >
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <motion.div key={project.id} variants={projectVariants}>
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center mt-12">
           <a

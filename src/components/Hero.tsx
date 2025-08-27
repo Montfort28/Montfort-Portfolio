@@ -49,8 +49,8 @@ const Hero = () => {
                 Contact Me
               </Link>
               <a 
-                href="/MUGISHA_Montfort_Resume.pdf" 
-                download="MUGISHA_Montfort_Resume.pdf" 
+                href="/Montfort Mugisha_CV.pdf" 
+                download="Montfort Mugisha_CV.pdf" 
                 className="px-8 py-3 flex items-center gap-2 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:bg-opacity-10 font-medium rounded-lg transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,7 +66,7 @@ const Hero = () => {
               {/* Profile image with glowing effect */}
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#1E1E1E] shadow-2xl relative z-10">
                 <img 
-                  src="/profile-image.jpg" 
+                  src="/Mugisha_Docile.jpeg" 
                   alt="Mugisha Louis Marie De Montfort" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
