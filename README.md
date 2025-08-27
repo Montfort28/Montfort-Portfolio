@@ -55,7 +55,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Deployment
 
-This site is deployed on Vercel. Visit (https://montfortportfolio.com) to see it live.
+This site is deployed on Vercel. Visit[(https://montfort-portfolio.vercel.app/)] to see it live.
 
 ### Build for production
 
