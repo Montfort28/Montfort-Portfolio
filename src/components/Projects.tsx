@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import { IProject } from '../utils/data';
-import { motion } from 'framer-motion';
+import { motion, Variants, easeOut } from 'framer-motion';
 
 const Projects: React.FC = () => {
   const containerVariants = {
@@ -14,17 +14,17 @@ const Projects: React.FC = () => {
     }
   };
 
-  const projectVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+  const projectVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: easeOut
     }
-  };
+  }
+};
   // Project data with GitHub links and live demo links
   const projects: IProject[] = [
     {
