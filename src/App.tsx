@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#121212] text-white">
+      <div className="flex flex-col min-h-screen bg-beige text-espresso">
         <Header />
         <main className="flex-grow">
           <Routes>

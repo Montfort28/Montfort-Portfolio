@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   const navItems = [
     { title: 'Home', path: '/' },
     { title: 'About', path: '/about' },
@@ -17,37 +17,35 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#1E1E1E] shadow-lg">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-soft border-b border-neutral-gray">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center">
-          <div className="flex items-center">
-            <img 
-              src="/logo192.png" 
-              alt="Montfort Logo" 
-              className="h-8 w-8 mr-[-3px]"
-            />
-            <span className="text-xl font-bold text-blue-500">ontfort</span>
-          </div>
+        <Link to="/" className="flex items-center group">
+          <span className="text-2xl font-bold font-display bg-gradient-to-r from-mauve to-peach bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+            MM
+          </span>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-sm uppercase tracking-wide hover:text-blue-500 transition-colors ${
-                location.pathname === item.path ? 'text-blue-500 font-semibold' : 'text-gray-300'
-              }`}
+              className={`text-sm uppercase tracking-widest font-medium transition-all duration-300 relative group ${location.pathname === item.path
+                  ? 'text-mauve'
+                  : 'text-espresso hover:text-mauve'
+                }`}
             >
               {item.title}
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-mauve to-peach transition-all duration-300 ${location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
             </Link>
           ))}
         </nav>
-        
+
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-300 focus:outline-none"
+        <button
+          className="md:hidden text-espresso focus:outline-none transition-colors hover:text-mauve"
           onClick={toggleMenu}
         >
           {isMenuOpen ? (
@@ -61,17 +59,18 @@ const Header: React.FC = () => {
           )}
         </button>
       </div>
-      
+
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-[#1E1E1E] border-t border-gray-800">
+        <nav className="md:hidden bg-ivory border-t border-neutral-gray">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`block py-3 px-4 text-sm uppercase tracking-wide hover:bg-gray-800 ${
-                location.pathname === item.path ? 'text-blue-500 font-semibold' : 'text-gray-300'
-              }`}
+              className={`block py-3 px-4 text-sm uppercase tracking-widest font-medium transition-colors ${location.pathname === item.path
+                  ? 'text-mauve bg-neutral-gray'
+                  : 'text-espresso hover:bg-neutral-gray hover:text-mauve'
+                }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.title}

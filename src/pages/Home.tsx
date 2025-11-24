@@ -11,15 +11,15 @@ const Home: React.FC = () => {
       <Hero />
 
       {/* Section Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-gray to-transparent my-0" />
       <About />
 
       {/* Section Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-gray to-transparent my-0" />
       <Projects />
 
       {/* Section Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-16" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-gray to-transparent my-0" />
       <Contact />
     </div>
   );

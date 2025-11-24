@@ -1,140 +1,148 @@
 export interface IProject {
-    id: number;
-    title: string;
-    description: string;
-    technologies: string[];
-    image: string;
-    liveLink?: string;
-    githubLink: string;
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  liveLink?: string;
+  githubLink: string;
+}
+
+export interface ISkill {
+  name: string;
+  level: number; // 1-100
+  category: 'frontend' | 'backend' | 'tools' | 'soft-skills';
+}
+
+export interface ICertification {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+}
+
+export const projects: IProject[] = [
+  {
+    id: 1,
+    title: "Mental Health Platform",
+    description: "A fullstack web platform supporting mental health journeys with a visual Mind Garden progress tool. Features secure authentication, real-time data sync, and intuitive UI/UX design.",
+    technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Node.js", "Prisma"],
+    image: "/images/projects/mental-health.jpg",
+    liveLink: "https://safe-haven-mental-health.vercel.app/",
+    githubLink: "https://github.com/Montfort28/safe-haven"
+  },
+  {
+    id: 2,
+    title: "Daily Health Reminder App",
+    description: "A fullstack health reminder application with offline data storage using IndexedDB. Features dark mode toggle, accessible UI, and seamless synchronization.",
+    technologies: ["Vue.js", "Tailwind CSS", "IndexedDB", "JavaScript"],
+    image: "/images/projects/health-reminder.jpg",
+    liveLink: "https://daily-health-reminder-web-app.vercel.app/",
+    githubLink: "https://github.com/Montfort28/daily-health-reminder-web-app"
+  },
+  {
+    id: 3,
+    title: "Educational Institutions Landing Page",
+    description: "Fully responsive landing page built from Figma design. Features smooth animations, carousel functionality, and modern interactive elements using Framer Motion.",
+    technologies: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
+    image: "/images/projects/educational-landing.jpg",
+    liveLink: "https://educational-landing-page.vercel.app/",
+    githubLink: "https://github.com/Montfort28/educational-landing"
+  },
+  {
+    id: 4,
+    title: "BouletteProof - BP Ticket System",
+    description: "Enterprise ticketing system with Google OAuth integration, Slack notifications, and ClickUp task automation. Internship project showcasing production-level development skills.",
+    technologies: ["Next.js", "PostgreSQL", "Prisma", "Google OAuth", "Slack API"],
+    image: "/images/projects/bp-ticket-system.jpg",
+    liveLink: "https://bp-ticket-system.vercel.app/",
+    githubLink: "https://github.com/Montfort28/bp-ticket-system"
   }
-  
-  export interface ISkill {
-    name: string;
-    level: number; // 1-100
-    category: 'frontend' | 'backend' | 'tools' | 'languages';
+];
+
+export const skills: ISkill[] = [
+  // Frontend
+  { name: "React", level: 85, category: "frontend" },
+  { name: "Next.js", level: 90, category: "frontend" },
+  { name: "Vue.js", level: 80, category: "frontend" },
+  { name: "TypeScript", level: 85, category: "frontend" },
+  { name: "Tailwind CSS", level: 95, category: "frontend" },
+
+  // Backend
+  { name: "Node.js", level: 80, category: "backend" },
+  { name: "PostgreSQL", level: 82, category: "backend" },
+  { name: "Prisma ORM", level: 85, category: "backend" },
+  { name: "REST APIs", level: 85, category: "backend" },
+  { name: "OAuth / Authentication", level: 80, category: "backend" },
+
+  // Tools
+  { name: "GitHub", level: 90, category: "tools" },
+  { name: "VS Code", level: 92, category: "tools" },
+  { name: "Figma", level: 80, category: "tools" },
+  { name: "Git & Rebase", level: 85, category: "tools" },
+
+  // Soft Skills
+  { name: "Teamwork & Agile", level: 90, category: "soft-skills" },
+  { name: "Communication", level: 88, category: "soft-skills" },
+  { name: "Problem Solving", level: 92, category: "soft-skills" },
+  { name: "Attention to Detail", level: 90, category: "soft-skills" }
+];
+
+export const certifications: ICertification[] = [
+  {
+    title: "Daily Health Reminder Web App Challenge",
+    issuer: "Possinove",
+    date: "April 2024",
+    description: "Completed a 7-day challenge to build a production-ready health reminder application using Vue.js, Tailwind CSS, and IndexedDB with offline functionality."
+  },
+  {
+    title: "BouletteProof Internship",
+    issuer: "Tech Company",
+    date: "2024",
+    description: "Full internship experience working on production systems with Google OAuth, Slack integrations, and enterprise-level database management using PostgreSQL and Prisma."
   }
-  
-  export interface ICertification {
-    title: string;
-    issuer: string;
-    date: string;
-    description: string;
-  }
-  
-  export const projects: IProject[] = [
+];
+
+export const personalInfo = {
+  name: "Mugisha Louis Marie De Montfort",
+  title: "Fullstack Engineer",
+  role: "Fullstack Engineer (Next.js, PostgreSQL)",
+  email: "mugishamontfort28@gmail.com",
+  phone: "+250 790 779 776",
+  location: "Kigali, Rwanda",
+  oneLiner: "I build fast, modern, and scalable web applications using Next.js and clean UI design principles.",
+  bio: "Fullstack developer with strong frontend experience in Next.js & Tailwind. Passionate about UI/UX with expertise in API integrations (Slack, ClickUp, OAuth) and team collaboration.",
+  about: `Fullstack developer with strong frontend experience in Next.js & Tailwind CSS. Passionate about creating beautiful, intuitive user experiences while building scalable backend systems. 
+
+I specialize in API integrations including Slack notifications, ClickUp automation, and OAuth implementations. With hands-on experience in Agile environments, I excel at code reviews, collaborative development, and maintaining clean code architecture.
+
+My approach combines modern technologies with attention to detail, ensuring every project is both performant and visually stunning.`,
+  education: {
+    degree: "Bachelor of Software Engineering",
+    institution: "INES Ruhengeri",
+    location: "Musanze, Rwanda",
+    graduationDate: "October 2025"
+  },
+  social: {
+    github: "https://github.com/Montfort28",
+    linkedin: "https://www.linkedin.com/in/mugisha-montfort-5b9177346/",
+  },
+  resume: "/Mugisha_Montfort_RESUME.PDF",
+  profileImage: "/Mugisha_Docile.JPEG",
+  references: [
     {
-      id: 1,
-      title: "Safe Haven – Mental Health Platform",
-      description: "A unique web-based platform to support users' mental health journeys. Includes Mind Garden, an interactive feature to visualize personal progress.",
-      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-      image: "/images/projects/safe-haven.jpg",
-      githubLink: "https://github.com/Montfort28/safe-haven"
-    },
-    {
-      id: 2,
-      title: "Daily Health Reminder Web App",
-      description: "A Vue.js application for setting personalized health reminders. Features offline data storage with IndexedDB and a dark mode toggle.",
-      technologies: ["Vue.js", "Tailwind CSS", "IndexedDB"],
-      image: "/images/projects/health-reminder.jpg",
-      liveLink: "https://daily-health-reminder-web-app.vercel.app/",
-      githubLink: "https://github.com/Montfort28/daily-health-reminder"
-    },
-    {
-      id: 3,
-      title: "To-Do List System",
-      description: "A CRUD-based task manager with user authentication and session handling. Built with PHP and MySQL for backend functionality.",
-      technologies: ["PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-      image: "/images/projects/todo-list.jpg",
-      githubLink: "https://github.com/Montfort28/todo_app"
-    },
-    {
-      id: 4,
-      title: "Interactive Portfolio Website",
-      description: "A personal portfolio website to showcase projects and skills. Features responsive design with engaging interactive elements.",
-      technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-      image: "/images/projects/portfolio.jpg",
-      githubLink: "https://github.com/Montfort28/portfolio"
-    }
-  ];
-  
-  export const skills: ISkill[] = [
-    // Frontend
-    { name: "HTML", level: 90, category: "frontend" },
-    { name: "CSS", level: 88, category: "frontend" },
-    { name: "JavaScript", level: 85, category: "frontend" },
-    { name: "Tailwind CSS", level: 88, category: "frontend" },
-    { name: "React.js", level: 70, category: "frontend" },
-    { name: "Vue.js", level: 75, category: "frontend" },
-    
-    // Backend
-    { name: "Node.js", level: 65, category: "backend" },
-    { name: "Python", level: 60, category: "backend" },
-    { name: "SQL", level: 60, category: "backend" },
-    { name: "PHP", level: 70, category: "backend" },
-    { name: "MySQL", level: 70, category: "backend" },
-    
-    // Tools
-    { name: "Git/GitHub", level: 80, category: "tools" },
-    { name: "VS Code", level: 85, category: "tools" },
-    { name: "Figma", level: 75, category: "tools" },
-    
-    // Languages
-    { name: "English", level: 90, category: "languages" },
-    { name: "Kinyarwanda", level: 100, category: "languages" }
-  ];
-  
-  export const certifications: ICertification[] = [
-    {
-      title: "Frontend Project Certificate",
-      issuer: "Possinove",
-      date: "April 2024",
-      description: "Completed a 7-day challenge to build a Daily Health Reminder Web App using Vue.js, Tailwind CSS, and IndexedDB."
-    },
-    {
-      title: "Beyond Success Leadership Program",
-      issuer: "Dr. John C. Maxwell",
-      date: "2024",
-      description: "Participated in a leadership and personal growth initiative focused on maximizing potential and effective leadership strategies."
-    }
-  ];
-  
-  export const personalInfo = {
-    name: "MUGISHA Louis Marie De Montfort",
-    title: "Software Engineering Student & Full-Stack Developer",
-    email: "Mugishamontfort28@gmail.com",
-    phone: "+250 790 779 776",
-    location: "Kigali, Rwanda",
-    bio: "Motivated and detail-oriented final-year Software Engineering student with a passion for Full-Stack Development. Proficient in HTML, CSS, JavaScript, and Tailwind CSS.",
-    about: `I am a motivated and detail-oriented final-year Software Engineering student at INES Ruhengeri, expected to graduate in October 2025. I have a passion for Full-Stack Development with proficiency in HTML, CSS, JavaScript, and Tailwind CSS, along with foundational knowledge of React.js, Vue.js, Python, and SQL.
-  
-    My experience includes building responsive, user-friendly web applications while maintaining a commitment to continuous learning. I am skilled in both front-end and back-end development, with a strong focus on creating efficient and scalable solutions.
-    
-    I'm especially interested in UI/UX design and emerging front-end technologies, and I'm currently enhancing my skills in React.js and Vue.js for creating dynamic web applications.`,
-    education: {
-      degree: "Bachelor of Software Engineering",
+      name: "Mr. MUNYENTWARI Clement",
+      title: "Professor of Software-Based Modules",
       institution: "INES Ruhengeri",
-      location: "Musanze, Rwanda",
-      graduationDate: "Expected October 2025"
+      email: "mclement@ines.ac.rw",
+      phone: "+250 788 807 133"
     },
-    social: {
-      github: "https://github.com/Montfort28",
-      linkedin: "https://www.linkedin.com/in/mugisha-montfort-5b9177346/",
-    },
-    resume: "/files/MUGISHA_Montfort_Resume.pdf",
-    references: [
-      {
-        name: "Mr. MUNYENTWARI Clement",
-        title: "Professor of Software-Based Modules",
-        institution: "INES Ruhengeri",
-        email: "mclement@ines.ac.rw",
-        phone: "+250 788 807 133"
-      },
-      {
-        name: "Mrs. MBONIMANA Consolee",
-        title: "Lecturer of Software-Based Modules",
-        institution: "INES Ruhengeri",
-        email: "mconsolee@ines.ac.rw",
-        phone: "+250 785 642 109"
-      }
-    ]
-  };
+    {
+      name: "Mrs. MBONIMANA Consolee",
+      title: "Lecturer of Software-Based Modules",
+      institution: "INES Ruhengeri",
+      email: "mconsolee@ines.ac.rw",
+      phone: "+250 785 642 109"
+    }
+  ]
+};
