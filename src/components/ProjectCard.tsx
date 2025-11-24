@@ -56,7 +56,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
           {project.technologies.map((tech, index) => (
             <span
               key={index}
-              className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-mauve/10 to-peach/10 text-mauve border border-mauve/20"
+              className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-clay/10 to-ivory/10 text-clay border border-clay/20"
             >
               {tech}
             </span>
@@ -69,7 +69,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 px-4 py-2 bg-espresso text-white rounded-lg flex items-center justify-center gap-2 hover:bg-mauve font-semibold text-sm transition-all duration-300"
+            className="flex-1 px-4 py-2 bg-espresso text-white rounded-lg flex items-center justify-center gap-2 hover:bg-clay font-semibold text-sm transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-4 py-2 bg-gradient-to-r from-mauve to-peach text-white rounded-lg flex items-center justify-center gap-2 hover:shadow-glow-mauve font-semibold text-sm transition-all duration-300"
+              className="flex-1 px-4 py-2 bg-gradient-to-r from-clay to-ivory text-white rounded-lg flex items-center justify-center gap-2 hover:shadow-glow-clay font-semibold text-sm transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

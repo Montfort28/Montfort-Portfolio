@@ -11,10 +11,10 @@ const Skills: React.FC = () => {
   };
 
   const categoryLabels = {
-    frontend: '🎨 Frontend',
-    backend: '⚙️ Backend',
-    tools: '🛠 Tools',
-    'soft-skills': '💡 Soft Skills'
+    frontend: 'Frontend Development',
+    backend: 'Backend Development',
+    tools: 'Development Tools',
+    'soft-skills': 'Soft Skills'
   };
 
   return (
@@ -22,13 +22,13 @@ const Skills: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fadeInUp">
-          <p className="text-sm uppercase tracking-[0.2em] text-mauve font-semibold mb-4">
+          <p className="text-sm uppercase tracking-[0.2em] text-clay font-semibold mb-4">
             Technical Arsenal
           </p>
           <h2 className="text-5xl md:text-6xl font-display font-bold text-espresso mb-6">
             Skills & Expertise
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-mauve to-peach mx-auto"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-clay to-ivory mx-auto"></div>
         </div>
 
         {/* Skills Grid */}
@@ -49,14 +49,14 @@ const Skills: React.FC = () => {
                       <span className="text-base font-semibold text-espresso">
                         {skill.name}
                       </span>
-                      <span className="text-sm font-bold text-mauve">
+                      <span className="text-sm font-bold text-clay">
                         {skill.level}%
                       </span>
                     </div>
 
                     <div className="w-full bg-neutral-gray rounded-full h-3 overflow-hidden">
                       <div
-                        className="h-3 rounded-full bg-gradient-to-r from-mauve to-peach transition-all duration-700 ease-out"
+                        className="h-3 rounded-full bg-gradient-to-r from-clay to-ivory transition-all duration-700 ease-out"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -79,7 +79,7 @@ const Skills: React.FC = () => {
               key={index}
               className="text-center p-6 bg-gradient-to-br from-ivory to-beige rounded-xl border border-neutral-gray"
             >
-              <p className="text-3xl font-display font-bold text-mauve mb-2">
+              <p className="text-3xl font-display font-bold text-clay mb-2">
                 {stat.value}
               </p>
               <p className="text-sm text-espresso/70">

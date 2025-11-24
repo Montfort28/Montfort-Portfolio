@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           {/* Logo & Brand */}
           <div className="animate-fadeInUp">
             <Link to="/" className="flex items-center group mb-4">
-              <span className="text-2xl font-display font-bold bg-gradient-to-r from-mauve to-peach bg-clip-text text-transparent group-hover:from-peach group-hover:to-mauve transition-all">
+              <span className="text-2xl font-display font-bold bg-gradient-to-r from-clay to-clay bg-clip-text text-transparent group-hover:from-peach group-hover:to-mauve transition-all">
                 MM
               </span>
             </Link>
@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
           <div className="animate-slideInLeft">
             <h4 className="font-display font-semibold text-espresso mb-6">Quick Links</h4>
             <nav className="space-y-3">
-              <Link to="/" className="block text-espresso/70 hover:text-mauve transition-colors">Home</Link>
-              <Link to="/projects" className="block text-espresso/70 hover:text-mauve transition-colors">Projects</Link>
-              <Link to="/about" className="block text-espresso/70 hover:text-mauve transition-colors">About</Link>
-              <Link to="/contact" className="block text-espresso/70 hover:text-mauve transition-colors">Contact</Link>
+              <Link to="/" className="block text-espresso/70 hover:text-clay transition-colors">Home</Link>
+              <Link to="/projects" className="block text-espresso/70 hover:text-clay transition-colors">Projects</Link>
+              <Link to="/about" className="block text-espresso/70 hover:text-clay transition-colors">About</Link>
+              <Link to="/contact" className="block text-espresso/70 hover:text-clay transition-colors">Contact</Link>
             </nav>
           </div>
 
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-espresso/70 hover:text-mauve transition-colors group"
+                className="flex items-center space-x-2 text-espresso/70 hover:text-clay transition-colors group"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5 0-.23-.01-.97-.01-1.89-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.67-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.82c.85 0 1.71.12 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.58 1.03 2.67 0 3.82-2.34 4.66-4.57 4.91.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.16.58.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
 
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center space-x-2 text-espresso/70 hover:text-mauve transition-colors group"
+                className="flex items-center space-x-2 text-espresso/70 hover:text-clay transition-colors group"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

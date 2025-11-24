@@ -65,45 +65,45 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fadeInUp">
-          <p className="text-sm uppercase tracking-[0.2em] text-mauve font-semibold mb-4">Get In Touch</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-clay font-semibold mb-4">Get In Touch</p>
           <h2 className="text-5xl md:text-6xl font-display font-bold text-espresso mb-6">
-            Let's Create <span className="bg-gradient-to-r from-mauve to-peach bg-clip-text text-transparent">Something Amazing</span>
+            Let's Create <span className="bg-gradient-to-r from-clay to-clay bg-clip-text text-transparent">Something Amazing</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-mauve via-peach to-mauve mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-clay via-peach to-mauve mx-auto"></div>
         </div>
 
         {/* Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* Email Card */}
-          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-mauve transition-all duration-300 animate-slideInLeft">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-mauve/10 to-peach/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg className="w-7 h-7 text-mauve" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-clay transition-all duration-300 animate-slideInLeft">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-peach/10 to-mauve/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg className="w-7 h-7 text-peach" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
             <h3 className="text-xl font-display font-semibold text-espresso mb-2">Email</h3>
-            <a href={`mailto:${personalInfo.email}`} className="text-mauve hover:text-peach transition-colors font-medium">
+            <a href={`mailto:${personalInfo.email}`} className="text-peach hover:text-clay transition-colors font-medium">
               {personalInfo.email}
             </a>
           </div>
 
           {/* Phone Card */}
-          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-peach transition-all duration-300">
+          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-clay transition-all duration-300">
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-peach/10 to-mauve/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <svg className="w-7 h-7 text-peach" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
             <h3 className="text-xl font-display font-semibold text-espresso mb-2">Phone</h3>
-            <a href={`tel:${personalInfo.phone}`} className="text-peach hover:text-mauve transition-colors font-medium">
+            <a href={`tel:${personalInfo.phone}`} className="text-peach hover:text-clay transition-colors font-medium">
               {personalInfo.phone}
             </a>
           </div>
 
           {/* Location Card */}
-          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-mauve transition-all duration-300 animate-slideInRight">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-mauve/10 to-peach/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg className="w-7 h-7 text-mauve" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="group bg-white rounded-2xl p-8 shadow-soft border border-neutral-gray hover:shadow-xl hover:border-clay transition-all duration-300 animate-slideInRight">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-peach/10 to-mauve/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg className="w-7 h-7 text-peach" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-mauve focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
+                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-clay focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
                   placeholder="Mugisha De Montfort"
                 />
               </div>
@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-mauve focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
+                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-clay focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
                   placeholder="your@email.com"
                 />
               </div>
@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-mauve focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
+                  className="w-full bg-white text-espresso rounded-xl px-5 py-4 border border-neutral-gray focus:border-clay focus:outline-none focus:ring-2 focus:ring-mauve/20 transition-all placeholder:text-espresso/40"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-mauve to-peach hover:shadow-lg hover:shadow-mauve/30 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full px-8 py-4 bg-gradient-to-r from-clay to-ivory hover:shadow-lg hover:shadow-mauve/30 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <>
@@ -225,10 +225,10 @@ const Contact: React.FC = () => {
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 p-4 rounded-xl bg-white border border-neutral-gray hover:border-mauve hover:bg-gradient-to-r hover:from-mauve/5 hover:to-peach/5 transition-all group"
+                className="flex items-center space-x-4 p-4 rounded-xl bg-white border border-neutral-gray hover:border-peach hover:bg-gradient-to-r hover:from-peach/5 hover:to-mauve/5 transition-all group"
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mauve/10 to-peach/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <svg className="w-5 h-5 text-mauve" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-peach/10 to-mauve/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg className="w-5 h-5 text-peach" fill="currentColor" viewBox="0 0 24 24">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5 0-.23-.01-.97-.01-1.89-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.67-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.82c.85 0 1.71.12 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.58 1.03 2.67 0 3.82-2.34 4.66-4.57 4.91.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.16.58.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
                   </svg>
                 </div>
@@ -236,7 +236,7 @@ const Contact: React.FC = () => {
                   <p className="font-semibold text-espresso">GitHub</p>
                   <p className="text-sm text-espresso/60">@Montfort28</p>
                 </div>
-                <svg className="w-5 h-5 text-mauve ml-auto group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-peach ml-auto group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>

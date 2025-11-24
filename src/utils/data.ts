@@ -27,35 +27,32 @@ export const projects: IProject[] = [
     title: "Mental Health Platform",
     description: "A fullstack web platform supporting mental health journeys with a visual Mind Garden progress tool. Features secure authentication, real-time data sync, and intuitive UI/UX design.",
     technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Node.js", "Prisma"],
-    image: "/images/projects/mental-health.jpg",
-    liveLink: "https://safe-haven-mental-health.vercel.app/",
-    githubLink: "https://github.com/Montfort28/safe-haven"
+    image: "/Safe_Haven.JFIF",
+    githubLink: "https://github.com/Montfort28/Safe-Haven-Platform"
   },
   {
     id: 2,
-    title: "Daily Health Reminder App",
-    description: "A fullstack health reminder application with offline data storage using IndexedDB. Features dark mode toggle, accessible UI, and seamless synchronization.",
-    technologies: ["Vue.js", "Tailwind CSS", "IndexedDB", "JavaScript"],
-    image: "/images/projects/health-reminder.jpg",
-    liveLink: "https://daily-health-reminder-web-app.vercel.app/",
-    githubLink: "https://github.com/Montfort28/daily-health-reminder-web-app"
+    title: "Gaming Info & Discovery Website",
+    description: "Built a gaming discovery platform that allows users to search for video games, view release dates, explore detailed descriptions, and read tips or tricks for each title. The interface is clean, responsive, and designed to mimic modern gaming databases.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "REST API", "Node.js"],
+    image: "/Gaming_clone.JFIF",
+    githubLink: "https://github.com/Montfort28"
   },
   {
     id: 3,
     title: "Educational Institutions Landing Page",
     description: "Fully responsive landing page built from Figma design. Features smooth animations, carousel functionality, and modern interactive elements using Framer Motion.",
     technologies: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
-    image: "/images/projects/educational-landing.jpg",
-    liveLink: "https://educational-landing-page.vercel.app/",
-    githubLink: "https://github.com/Montfort28/educational-landing"
+    image: "/posinnove.jpg",
+    liveLink: "https://posinnove-webpage.vercel.app/",
+    githubLink: "https://github.com/Montfort28/posinnove-webpage"
   },
   {
     id: 4,
     title: "BouletteProof - BP Ticket System",
-    description: "Enterprise ticketing system with Google OAuth integration, Slack notifications, and ClickUp task automation. Internship project showcasing production-level development skills.",
+    description: "Enterprise ticketing system with Google OAuth integration, Slack notifications, and ClickUp task automation. Internship project (May - Aug 2024) showcasing production-level development skills.",
     technologies: ["Next.js", "PostgreSQL", "Prisma", "Google OAuth", "Slack API"],
-    image: "/images/projects/bp-ticket-system.jpg",
-    liveLink: "https://bp-ticket-system.vercel.app/",
+    image: "/Bouletteproof.PNG",
     githubLink: "https://github.com/Montfort28/bp-ticket-system"
   }
 ];
@@ -90,16 +87,16 @@ export const skills: ISkill[] = [
 
 export const certifications: ICertification[] = [
   {
-    title: "Daily Health Reminder Web App Challenge",
-    issuer: "Possinove",
-    date: "April 2024",
-    description: "Completed a 7-day challenge to build a production-ready health reminder application using Vue.js, Tailwind CSS, and IndexedDB with offline functionality."
+    title: "Software Developer",
+    issuer: "Bittwok, Kigali",
+    date: "Nov 2025 – Present",
+    description: "Contributing to the development of a tourism website built with PHP-based frontend pages. Implementing responsive UI components, improving layouts, and enhancing user experience. Integrating APIs and translating business requirements into functional features within a fast-moving startup environment."
   },
   {
-    title: "BouletteProof Internship",
-    issuer: "Tech Company",
-    date: "2024",
-    description: "Full internship experience working on production systems with Google OAuth, Slack integrations, and enterprise-level database management using PostgreSQL and Prisma."
+    title: "Software Developer Internship",
+    issuer: "BouletteProof",
+    date: "May – Aug 2024",
+    description: "Full internship experience working on production systems with Google OAuth, Slack integrations, and enterprise-level database management using PostgreSQL and Prisma. Collaborated with team on feature development and system optimization."
   }
 ];
 
@@ -127,7 +124,7 @@ My approach combines modern technologies with attention to detail, ensuring ever
     github: "https://github.com/Montfort28",
     linkedin: "https://www.linkedin.com/in/mugisha-montfort-5b9177346/",
   },
-  resume: "/Mugisha_Montfort_RESUME.PDF",
+  resume: "/Mugisha Montfort_RESUME.pdf",
   profileImage: "/Mugisha_Docile.JPEG",
   references: [
     {
