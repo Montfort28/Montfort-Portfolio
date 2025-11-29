@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
         <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-ivory/5 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-24 pb-24">
+      <div className="container mx-auto px-4 relative z-10 pt-32 pb-24">
         {/* Header */}
         <div className="text-center mb-16 space-y-3 animate-fadeInUp">
           <p className="text-xs uppercase tracking-[0.3em] text-clay font-bold opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
@@ -90,17 +90,17 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Testimonial Section */}
-        <div className="mt-20 bg-white rounded-2xl p-8 md:p-12 shadow-soft border border-neutral-gray">
+        <div className="mt-20 bg-gradient-to-br from-gray-900/60 to-black/40 backdrop-blur-xl rounded-2xl p-8 md:p-12 shadow-lg border border-clay/20">
           <div className="max-w-3xl mx-auto text-center">
-            <svg className="w-12 h-12 mx-auto mb-6 text-clay/30" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 mx-auto mb-6 text-clay/40" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
-            <p className="text-xl md:text-2xl italic font-light text-espresso/70 mb-6">
+            <p className="text-xl md:text-2xl italic font-light text-gray-300 mb-6">
               "I believe in building products that are not just functional, but delightful. Every pixel, every interaction matters."
             </p>
             <div>
               <p className="text-clay font-display font-bold text-lg">Mugisha Montfort</p>
-              <p className="text-espresso/60 text-sm">Fullstack Engineer & UI/UX Enthusiast</p>
+              <p className="text-ivory/60 text-sm">Fullstack Engineer & UI/UX Enthusiast</p>
             </div>
           </div>
         </div>

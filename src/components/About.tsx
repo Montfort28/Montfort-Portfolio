@@ -6,22 +6,22 @@ const About: React.FC = () => {
 
   const highlights = [
     {
-      icon: '✓',
+      icon: 'check',
       title: 'Fullstack Expert',
       description: 'Next.js, PostgreSQL, Node.js'
     },
     {
-      icon: '◆',
+      icon: 'diamond',
       title: 'UI/UX Focused',
       description: 'Beautiful, accessible interfaces'
     },
     {
-      icon: '↗',
+      icon: 'arrow',
       title: 'Performance-Driven',
       description: 'Fast, scalable applications'
     },
     {
-      icon: '◎',
+      icon: 'circle',
       title: 'Team Player',
       description: 'Agile, collaborative mindset'
     }
@@ -102,10 +102,31 @@ const About: React.FC = () => {
                 {highlights.map((highlight, index) => (
                   <div
                     key={index}
-                    className="group bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-lg p-4 border border-gray-700/50 hover:border-clay hover:shadow-lg hover:shadow-clay/20 transition-all duration-300 transform hover:translate-y-2"
+                    className="group bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-lg p-4 border border-gray-700/50 hover:border-clay hover:shadow-lg hover:shadow-clay/20 transition-all duration-300 transform hover:translate-y-2 overflow-hidden"
                     style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                   >
-                    <div className="text-3xl mb-3 group-hover:scale-125 transition-transform duration-300">{highlight.icon}</div>
+                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300 inline-flex items-center justify-center">
+                      {highlight.icon === 'check' && (
+                        <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                      {highlight.icon === 'diamond' && (
+                        <svg className="w-7 h-7 text-ivory" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l4 7h5l-4 6h4l-9 7-9-7h4l-4-6h5l4-7z" />
+                        </svg>
+                      )}
+                      {highlight.icon === 'arrow' && (
+                        <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                        </svg>
+                      )}
+                      {highlight.icon === 'circle' && (
+                        <svg className="w-7 h-7 text-ivory" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="9" strokeWidth={2} />
+                        </svg>
+                      )}
+                    </div>
                     <p className="font-semibold text-sm text-white">{highlight.title}</p>
                     <p className="text-xs text-gray-400 mt-1">{highlight.description}</p>
                   </div>

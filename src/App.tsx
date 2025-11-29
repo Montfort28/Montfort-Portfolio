@@ -1,12 +1,23 @@
 // App.tsx
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
+
+// Component to handle scroll to top on route change
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -27,6 +38,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-beige text-espresso relative">
         {/* Cursor glow effect */}
         <div
