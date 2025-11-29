@@ -27,20 +27,30 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-ivory via-beige to-neutral-gray">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="relative bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f] overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-gradient-to-l from-clay/10 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-ivory/5 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10 pt-24 pb-24">
         {/* Header */}
-        <div className="text-center mb-16 animate-fadeInUp">
-          <p className="text-sm uppercase tracking-[0.2em] text-clay font-semibold mb-4">
-            Featured Work
+        <div className="text-center mb-16 space-y-3 animate-fadeInUp">
+          <p className="text-xs uppercase tracking-[0.3em] text-clay font-bold opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            Showcase of Excellence
           </p>
-          <h2 className="text-5xl md:text-6xl font-display font-bold text-espresso mb-6">
+          <h2 className="text-5xl md:text-6xl font-display font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent opacity-0 animate-fadeInUp mb-3" style={{ animationDelay: '0.2s' }}>
             Featured Projects
           </h2>
-          <p className="text-lg text-espresso/60 max-w-2xl mx-auto mb-8">
-            Showcasing my strongest work across fullstack development, UI/UX design, and modern web technologies.
+          <p className="text-base text-gray-300 max-w-3xl mx-auto opacity-0 animate-fadeInUp leading-relaxed" style={{ animationDelay: '0.3s' }}>
+            Showcasing my strongest work across fullstack development, UI/UX design, and modern web technologies. Each project represents excellence, innovation, and attention to detail.
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-clay to-ivory mx-auto"></div>
+          <div className="flex justify-center gap-2 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-clay to-ivory"></div>
+            <div className="w-8 h-1 bg-gradient-to-r from-clay to-ivory rounded-full"></div>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-clay to-ivory"></div>
+          </div>
         </div>
 
         {/* Projects Grid */}

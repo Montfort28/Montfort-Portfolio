@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navItems = [
-    { title: 'Home', path: '/' },
-    { title: 'About', path: '/about' },
-    { title: 'Projects', path: '/projects' },
-    { title: 'Contact', path: '/contact' },
+    { title: 'HOME', path: '/' },
+    { title: 'ABOUT', path: '/about' },
+    { title: 'PROJECTS', path: '/projects' },
+    { title: 'CONTACT', path: '/contact' },
   ];
 
   const toggleMenu = () => {
@@ -17,68 +28,83 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-soft border-b border-neutral-gray">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center group">
-          <span className="text-2xl font-bold font-display bg-gradient-to-r from-clay to-clay bg-clip-text text-transparent hover:opacity-80 transition-opacity">
-            MM
-          </span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+    <>
+      {/* Floating Pill Navigation with Logo */}
+      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
+        <div className={`flex items-center gap-7 rounded-full backdrop-blur-xl border transition-all duration-500 ${scrolled
+          ? 'px-4 py-3 space-x-2 bg-[#1a1a1a]/95 border-white/10 shadow-2xl'
+          : 'px-6 py-4 space-x-4 bg-[#1a1a1a]/80 border-white/20'
+          }`}>
+          {/* Logo in Navbar */}
+          <Link
+            to="/"
+            className="flex items-center group relative flex-shrink-0 pr-2 border-r border-white/10"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-clay to-clay/50 blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+              <span className="relative text-lg font-bold font-display bg-gradient-to-br from-clay via-ivory to-clay bg-clip-text text-transparent group-hover:from-ivory group-hover:via-clay group-hover:to-ivory transition-all duration-300">
+                MM
+              </span>
+            </div>
+          </Link>
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-sm uppercase tracking-widest font-medium transition-all duration-300 relative group ${location.pathname === item.path
-                ? 'text-clay'
-                : 'text-espresso hover:text-clay'
+              className={`relative px-3 py-2 text-xs font-bold tracking-[0.15em] transition-all duration-300 group overflow-hidden rounded-full ${location.pathname === item.path
+                ? 'text-white bg-gradient-to-r from-clay/30 to-clay/10'
+                : 'text-gray-300 hover:text-white'
                 }`}
             >
-              {item.title}
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-clay to-ivory transition-all duration-300 ${location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
+              <span className="absolute inset-0 bg-gradient-to-r from-clay/0 via-clay/20 to-clay/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 rounded-full"></span>
+              <span className="relative">{item.title}</span>
             </Link>
           ))}
-        </nav>
+        </div>
+      </nav>
 
-        {/* Mobile Menu Button */}
+      {/* Mobile Menu Toggle - Hidden on desktop */}
+      <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
         <button
-          className="md:hidden text-espresso focus:outline-none transition-colors hover:text-clay"
+          className="md:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none group"
           onClick={toggleMenu}
         >
-          {isMenuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
+          <div className="relative w-6 h-5">
+            <span className={`absolute h-0.5 w-6 bg-gradient-to-r from-clay to-clay/50 transition-all duration-500 transform origin-center ${isMenuOpen ? 'rotate-45 top-2' : 'top-0'
+              }`}></span>
+            <span className={`absolute h-0.5 w-6 bg-gradient-to-r from-clay to-clay/50 top-2.5 transition-all duration-500 ${isMenuOpen ? 'opacity-0' : 'opacity-100'
+              }`}></span>
+            <span className={`absolute h-0.5 w-6 bg-gradient-to-r from-clay to-clay/50 transition-all duration-500 transform origin-center ${isMenuOpen ? '-rotate-45 top-2' : 'bottom-0'
+              }`}></span>
+          </div>
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-ivory border-t border-neutral-gray">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`block py-3 px-4 text-sm uppercase tracking-widest font-medium transition-colors ${location.pathname === item.path
-                ? 'text-clay bg-neutral-gray'
-                : 'text-espresso hover:bg-neutral-gray hover:text-clay'
-                }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.title}
-            </Link>
-          ))}
+        <nav className="fixed md:hidden top-20 left-1/2 transform -translate-x-1/2 z-40 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border border-white/10 rounded-2xl w-80 shadow-2xl animate-slideInDown">
+          <div className="px-4 py-6 space-y-2">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`block py-3 px-4 text-xs uppercase tracking-[0.15em] font-bold transition-all duration-300 rounded-lg group relative overflow-hidden ${location.pathname === item.path
+                  ? 'text-clay bg-clay/10'
+                  : 'text-gray-300 hover:text-clay hover:bg-clay/5'
+                  }`}
+                onClick={() => setIsMenuOpen(false)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <span className="relative inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-clay opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  {item.title}
+                </span>
+              </Link>
+            ))}
+          </div>
         </nav>
       )}
-    </header>
+    </>
   );
 };
 

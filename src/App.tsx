@@ -1,5 +1,5 @@
 // App.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,11 +9,37 @@ import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
 const App: React.FC = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+
+      // Update CSS custom properties for cursor glow
+      const root = document.documentElement;
+      root.style.setProperty('--cursor-x', `${e.clientX}px`);
+      root.style.setProperty('--cursor-y', `${e.clientY}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-beige text-espresso">
+      <div className="flex flex-col min-h-screen bg-beige text-espresso relative">
+        {/* Cursor glow effect */}
+        <div
+          className="pointer-events-none fixed w-96 h-96 rounded-full opacity-20 blur-3xl mix-blend-screen z-40"
+          style={{
+            background: 'radial-gradient(circle, rgba(197, 123, 87, 0.4) 0%, rgba(197, 123, 87, 0) 70%)',
+            left: `${mousePosition.x - 192}px`,
+            top: `${mousePosition.y - 192}px`,
+            transition: 'all 0.15s ease-out'
+          }}
+        />
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />

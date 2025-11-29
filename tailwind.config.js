@@ -30,6 +30,15 @@ module.exports = {
         "fade-in": "fadeIn 0.8s ease-in-out",
         "slide-in": "slideIn 0.8s ease-out",
         "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+        fadeInUp: "fadeInUp 0.8s ease-out forwards",
+        fadeInDown: "fadeInDown 0.8s ease-out forwards",
+        slideInLeft: "slideInLeft 0.8s ease-out forwards",
+        slideInRight: "slideInRight 0.8s ease-out forwards",
+        float: "floatAnimation 3s ease-in-out infinite",
+        scaleInUp: "scaleInUp 0.6s ease-out forwards",
+        shimmer: "shimmer 2s infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        reveal: "reveal 0.8s ease-out forwards",
       },
       keyframes: {
         fadeIn: {
@@ -43,6 +52,42 @@ module.exports = {
         pulseGlow: {
           "0%, 100%": { boxShadow: "0 0 20px rgba(197, 123, 87, 0.3)" },
           "50%": { boxShadow: "0 0 40px rgba(197, 123, 87, 0.5)" },
+        },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeInDown: {
+          "0%": { opacity: "0", transform: "translateY(-30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideInLeft: {
+          "0%": { opacity: "0", transform: "translateX(-50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        slideInRight: {
+          "0%": { opacity: "0", transform: "translateX(50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        floatAnimation: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        scaleInUp: {
+          "0%": { opacity: "0", transform: "scale(0.8) translateY(20px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
+        shimmer: {
+          "0%": { "background-position": "-1000px 0" },
+          "100%": { "background-position": "1000px 0" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(197, 123, 87, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(197, 123, 87, 0.6)" },
+        },
+        reveal: {
+          "0%": { "clip-path": "inset(0 100% 0 0)" },
+          "100%": { "clip-path": "inset(0 0 0 0)" },
         },
       },
     },
