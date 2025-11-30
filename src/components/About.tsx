@@ -54,25 +54,34 @@ const About: React.FC = () => {
           {/* Left: Profile Image with Creative Background */}
           <div className="flex justify-center animate-slideInLeft opacity-0 -mt-8 md:-mt-12 lg:-mt-20" style={{ animationDelay: '0.3s' }}>
             <div className="relative group">
-              {/* Decorative background shapes */}
-              <div className="absolute inset-0 bg-gradient-to-br from-clay/10 to-transparent rounded-3xl blur-3xl transform -rotate-3 opacity-30 transition-opacity duration-500"></div>
-              <div className="absolute -inset-4 bg-gradient-to-br from-ivory/20 to-transparent rounded-2xl blur-2xl opacity-60"></div>
+              {/* Animated gradient orbs background */}
+              <div className="absolute -inset-8 bg-gradient-to-r from-clay/20 via-transparent to-ivory/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              <div className="absolute inset-0 w-72 h-96 rounded-full bg-gradient-to-br from-clay/30 to-ivory/10 blur-2xl opacity-40"></div>
 
-              <div className="relative w-72 h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-clay/50 group-hover:border-clay transition-all duration-500">
+              {/* Premium profile image container */}
+              <div className="relative w-72 h-96 rounded-3xl overflow-hidden shadow-2xl border-2 border-clay/50 backdrop-blur-sm group-hover:border-clay transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-clay/50">
+                {/* Animated border glow */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-clay/50 to-ivory/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                 <img
                   src="/Mugisha_Montfort_Profile.jpeg"
                   alt={personalInfo.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.src = 'https://via.placeholder.com/288x384?text=Profile';
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 via-transparent to-transparent group-hover:from-[#0a0a0a]/30 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-clay/0 via-clay/10 to-ivory/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-clay/20 to-ivory/20 backdrop-blur-lg rounded-2xl px-6 py-4 shadow-lg border border-clay/30 group-hover:border-clay transition-all duration-500 transform group-hover:translate-y-2">
-                <p className="text-xs font-semibold text-clay uppercase tracking-wider">Based in</p>
+              {/* Decorative floating elements */}
+              <div className="absolute top-0 right-0 w-20 h-20 border border-clay/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-float"></div>
+              <div className="absolute bottom-0 right-10 w-16 h-16 border border-ivory/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '0.5s' }}></div>
+
+              {/* Floating badge - now solid like Hero badge */}
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-clay to-clay/60 rounded-2xl p-4 shadow-lg backdrop-blur-md border border-clay/50 transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-clay/50 animate-scaleInUp opacity-0" style={{ animationDelay: '0.8s' }}>
+                <p className="text-xs font-bold uppercase tracking-widest text-white/80">Based In</p>
                 <p className="text-lg font-display font-bold text-white">{personalInfo.location}</p>
               </div>
             </div>
@@ -99,38 +108,50 @@ const About: React.FC = () => {
 
               {/* Highlights */}
               <div className="grid grid-cols-2 gap-4">
-                {highlights.map((highlight, index) => (
-                  <div
-                    key={index}
-                    className="group bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-sm rounded-lg p-4 border border-gray-700/50 hover:border-clay hover:shadow-lg hover:shadow-clay/20 transition-all duration-300 transform hover:translate-y-2 overflow-hidden"
-                    style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                  >
-                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300 inline-flex items-center justify-center">
-                      {highlight.icon === 'check' && (
-                        <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                      {highlight.icon === 'diamond' && (
-                        <svg className="w-7 h-7 text-ivory" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2l4 7h5l-4 6h4l-9 7-9-7h4l-4-6h5l4-7z" />
-                        </svg>
-                      )}
-                      {highlight.icon === 'arrow' && (
-                        <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                        </svg>
-                      )}
-                      {highlight.icon === 'circle' && (
-                        <svg className="w-7 h-7 text-ivory" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="9" strokeWidth={2} />
-                        </svg>
-                      )}
+                {highlights.map((highlight, index) => {
+                  const isWhiteCard = highlight.title === 'UI/UX Focused' || highlight.title === 'Team Player';
+                  const borderColor = isWhiteCard ? 'border-white/30' : 'border-clay/20';
+                  const hoverBorder = isWhiteCard ? 'hover:border-white' : 'hover:border-clay';
+                  const hoverShadow = isWhiteCard ? 'hover:shadow-white/40' : 'hover:shadow-clay/30';
+
+                  return (
+                    <div
+                      key={index}
+                      className={`group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-xl p-6 border ${borderColor} ${hoverBorder} hover:shadow-lg ${hoverShadow} transition-all duration-500 transform hover:scale-105 overflow-hidden`}
+                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                    >
+                      {/* Animated gradient overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-clay/0 via-clay/10 to-ivory/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none"></div>
+
+                      <div className="relative z-10">
+                        <div className="mb-3 group-hover:scale-110 transition-transform duration-300 inline-flex items-center justify-center">
+                          {highlight.icon === 'check' && (
+                            <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                          {highlight.icon === 'diamond' && (
+                            <svg className="w-7 h-7 text-ivory" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2l4 7h5l-4 6h4l-9 7-9-7h4l-4-6h5l4-7z" />
+                            </svg>
+                          )}
+                          {highlight.icon === 'arrow' && (
+                            <svg className="w-7 h-7 text-clay" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                            </svg>
+                          )}
+                          {highlight.icon === 'circle' && (
+                            <svg className="w-7 h-7 text-ivory" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <circle cx="12" cy="12" r="9" strokeWidth={2} />
+                            </svg>
+                          )}
+                        </div>
+                        <p className="font-semibold text-sm text-white">{highlight.title}</p>
+                        <p className="text-xs text-gray-400 mt-1">{highlight.description}</p>
+                      </div>
                     </div>
-                    <p className="font-semibold text-sm text-white">{highlight.title}</p>
-                    <p className="text-xs text-gray-400 mt-1">{highlight.description}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -259,7 +280,7 @@ const About: React.FC = () => {
                     </div>
                     <span className="bg-gradient-to-r from-clay/30 to-clay/10 text-clay px-4 py-1 rounded-full text-sm font-semibold border border-clay/50">{personalInfo.education.graduationDate}</span>
                   </div>
-                  <p className="text-gray-400 text-sm">📍 {personalInfo.education.location}</p>
+                  <p className="text-gray-400 text-sm"> {personalInfo.education.location}</p>
                   <p className="text-gray-300 mt-4">
                     Pursued a degree in Software Engineering with strong focus on fullstack development, cloud technologies, and modern software architecture patterns.
                   </p>

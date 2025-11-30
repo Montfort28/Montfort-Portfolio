@@ -153,9 +153,9 @@ const Hero = () => {
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-clay/50 hover:border-clay transition-all duration-300 hover:shadow-lg hover:shadow-clay/50 overflow-hidden flex items-center justify-center"
+                className="group relative w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-ivory/50 hover:border-ivory transition-all duration-300 hover:shadow-lg hover:shadow-ivory/50 overflow-hidden flex items-center justify-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-clay/0 to-clay/30 transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-ivory/0 to-ivory/30 transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 rounded-full"></div>
                 <svg className="relative w-6 h-6 text-gray-300 group-hover:text-white transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5 0-.23-.01-.97-.01-1.89-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.67-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.82c.85 0 1.71.12 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.58 1.03 2.67 0 3.82-2.34 4.66-4.57 4.91.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.16.58.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
                 </svg>
@@ -173,9 +173,9 @@ const Hero = () => {
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="group relative w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-clay/50 hover:border-clay transition-all duration-300 hover:shadow-lg hover:shadow-clay/50 overflow-hidden flex items-center justify-center"
+                className="group relative w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-ivory/50 hover:border-ivory transition-all duration-300 hover:shadow-lg hover:shadow-ivory/50 overflow-hidden flex items-center justify-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-clay/0 to-clay/30 transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-ivory/0 to-ivory/30 transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 rounded-full"></div>
                 <svg className="relative w-6 h-6 text-gray-300 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -232,10 +232,15 @@ const Hero = () => {
         </div>
 
         {/* One-liner quote */}
-        <div className="mt-12 text-center">
-          <blockquote className="text-lg md:text-xl italic text-espresso/60 font-light max-w-3xl mx-auto">
-            "Every line of code tells a story. Let's create something remarkable together."
-          </blockquote>
+        <div className="mt-16 text-center animate-fadeInUp opacity-0" style={{ animationDelay: '1.1s' }}>
+          <div className="inline-block bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl px-8 md:px-12 py-8 shadow-2xl border border-gray-800/50 hover:border-clay/30 transition-all duration-500 max-w-3xl mx-auto group">
+            <svg className="w-8 h-8 mx-auto mb-4 text-clay/40 group-hover:text-clay transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.021-5-7-5S0 3.75 0 5c0 5 0 7 .6 9.5.4 1.5 1 3 2.5 4.5s2.5 2 4 2c2.5 0 5-3 5-4 0-.2-.1-.4-.2-.5s-2.6 1-4 1c-2.5 0-3-2-3-4 0 0 0-1 2.5-1 2 0 4 1 4 3v4c0 4-3 6-7 6z" />
+            </svg>
+            <blockquote className="text-lg md:text-xl italic font-light text-gray-300 group-hover:text-white transition-colors duration-300">
+              "Every line of code tells a story. Let's create something remarkable together."
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>

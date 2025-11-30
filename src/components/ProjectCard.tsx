@@ -61,11 +61,11 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
         </p>
 
         {/* Technologies */}
-        <div className="mb-4 flex flex-wrap gap-2 flex-grow">
+        <div className="mb-4 flex flex-wrap gap-2 flex-grow items-center">
           {project.technologies.map((tech, index) => (
             <motion.span
               key={index}
-              className="text-xs font-bold px-3 py-1.5 rounded-full inline-block bg-gradient-to-r from-clay/20 to-ivory/20 text-clay border-2 border-clay/60 group-hover:border-clay group-hover:from-clay/40 group-hover:to-ivory/40 transition-all duration-300 uppercase tracking-wider whitespace-nowrap"
+              className="text-xs font-bold px-3 py-1 rounded-full inline-flex items-center justify-center bg-gradient-to-r from-clay/20 to-ivory/20 text-clay border-2 border-clay/60 group-hover:border-clay group-hover:from-clay/40 group-hover:to-ivory/40 transition-all duration-300 uppercase tracking-wider h-7"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
