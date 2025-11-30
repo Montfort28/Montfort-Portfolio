@@ -42,7 +42,7 @@ const About: React.FC = () => {
             Get To Know Me
           </p>
 
-          <div className="flex justify-center gap-1 mt-4">
+          <div className="flex justify-center gap-1 mt-4 mb-12 md:mb-16">
             <div className="w-2 h-2 rounded-full bg-clay animate-pulse"></div>
             <div className="w-2 h-2 rounded-full bg-clay animate-pulse" style={{ animationDelay: '0.2s' }}></div>
             <div className="w-2 h-2 rounded-full bg-clay animate-pulse" style={{ animationDelay: '0.4s' }}></div>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
         {/* Main Content with Image and Text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-center">
           {/* Left: Profile Image with Creative Background */}
-          <div className="flex justify-center animate-slideInLeft opacity-0 -mt-8 md:-mt-12 lg:-mt-20" style={{ animationDelay: '0.3s' }}>
+          <div className="flex justify-center animate-slideInLeft opacity-0 mt-0 md:-mt-12 lg:-mt-20" style={{ animationDelay: '0.3s' }}>
             <div className="relative group">
               {/* Animated gradient orbs background */}
               <div className="absolute -inset-8 bg-gradient-to-r from-clay/20 via-transparent to-ivory/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>

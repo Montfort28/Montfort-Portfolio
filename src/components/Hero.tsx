@@ -39,7 +39,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 z-10 max-w-7xl mt-32">
+      <div className="container mx-auto px-4 z-10 max-w-7xl mt-0 md:mt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-12">
           {/* Left Content */}
           <div className="space-y-6">
