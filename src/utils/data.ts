@@ -53,7 +53,7 @@ export const projects: IProject[] = [
     description: "Enterprise ticketing system with Google OAuth integration, Slack notifications, and ClickUp task automation. Internship project (May - Aug 2024) showcasing production-level development skills.",
     technologies: ["Next.js", "PostgreSQL", "Prisma", "Google OAuth", "Slack API"],
     image: "/Bouletteproof.png",
-    githubLink: "https://github.com/Montfort28/bp-ticket-system"
+    githubLink: "https://github.com/Montfort28"
   }
 ];
 

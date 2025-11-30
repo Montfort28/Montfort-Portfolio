@@ -27,7 +27,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f] overflow-hidden pt-4 pb-10">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f] overflow-hidden pt-4 md:pt-8 pb-10">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Breathing gradient orbs */}
@@ -98,9 +98,9 @@ const Hero = () => {
               <a
                 href={personalInfo.resume}
                 download
-                className="relative px-8 py-4 border-2 border-clay font-bold text-sm uppercase tracking-[0.1em] text-clay rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group hover:text-white overflow-hidden"
+                className="relative px-8 py-4 border-2 border-clay font-bold text-sm uppercase tracking-[0.1em] text-clay rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group hover:text-white overflow-hidden hover:shadow-lg hover:shadow-clay/30"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-clay/0 to-clay/0 group-hover:from-clay group-hover:to-clay/60 transform translate-x-[-100%] group-hover:translate-x-0 transition-all duration-500 rounded-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-clay/0 to-clay/0 group-hover:from-clay group-hover:to-clay/60 transform translate-x-[-100%] group-hover:translate-x-0 transition-all duration-500 rounded-[10px]"></div>
                 <span className="relative inline-flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

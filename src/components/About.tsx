@@ -35,7 +35,7 @@ const About: React.FC = () => {
         <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-r from-ivory/10 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-32 pb-24">
+      <div className="container mx-auto px-4 relative z-10 pt-8 md:pt-32 pb-24">
         {/* Header */}
         <div className="text-center mb-8 animate-fadeInUp">
           <p className="text-xs uppercase tracking-[0.3em] text-clay font-bold mb-2 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>

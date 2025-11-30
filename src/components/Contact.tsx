@@ -1,9 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { personalInfo } from '../utils/data';
-
-// Initialize EmailJS
-emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'zQhlasWYTWqK9QabJ');
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -17,6 +14,21 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ success?: boolean; message?: string } | null>(null);
 
+  // Initialize EmailJS with proper error handling
+  useEffect(() => {
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    if (!publicKey) {
+      console.error('EmailJS public key not found in environment variables');
+      return;
+    }
+    try {
+      emailjs.init(publicKey);
+      console.log('✓ EmailJS initialized successfully');
+    } catch (error) {
+      console.error('Failed to initialize EmailJS:', error);
+    }
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -25,38 +37,54 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      if (form.current) {
-        const result = await emailjs.sendForm(
-          'service_518dhj2',
-          'template_8rf2l6q',
-          form.current,
-          'zQhlasWYTWqK9QabJ'
-        );
+      if (!form.current) {
+        throw new Error('Form reference not found');
+      }
 
-        if (result.text === 'OK') {
-          setSubmitStatus({
-            success: true,
-            message: 'Thank you! I\'ll get back to you shortly. ✨'
-          });
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-          });
-        }
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Missing EmailJS configuration in environment variables');
+      }
+
+      console.log('Sending email with:', { serviceId, templateId });
+
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        form.current,
+        publicKey
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          success: true,
+          message: 'Thank you! I\'ll get back to you shortly. ✨'
+        });
+        console.log('✓ Email sent successfully');
+
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
       }
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      console.error('❌ Email submission failed:', errorMessage);
       setSubmitStatus({
         success: false,
-        message: 'Oops! Something went wrong. Please try again.'
+        message: 'Oops! Something went wrong. Please try again or contact directly at ' + personalInfo.email
       });
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
+      setTimeout(() => setSubmitStatus(null), 6000);
     }
   };
 
@@ -68,7 +96,7 @@ const Contact: React.FC = () => {
         <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-l from-ivory/10 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-32 pb-24">
+      <div className="container mx-auto px-4 relative z-10 pt-8 md:pt-32 pb-24">
         {/* Section Header */}
         <div className="text-center mb-8 animate-fadeInUp">
           <p className="text-xs uppercase tracking-[0.3em] text-clay font-bold mb-3 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>Let's Collaborate</p>
@@ -195,20 +223,21 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-clay to-ivory hover:shadow-lg hover:shadow-clay/40 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full px-8 py-4 relative bg-gradient-to-r from-clay to-clay/60 hover:shadow-lg hover:shadow-clay/50 text-white font-semibold rounded-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2 overflow-hidden group"
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-ivory/0 to-ivory/30 transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 rounded-xl"></div>
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-5 w-5 relative" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <span>Sending...</span>
+                    <span className="relative">Sending...</span>
                   </>
                 ) : (
                   <>
-                    <span>Send Message</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span className="relative">Send Message</span>
+                    <svg className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </>

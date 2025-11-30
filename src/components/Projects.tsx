@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
         <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-ivory/5 to-transparent blur-3xl animate-breathe" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-32 pb-24">
+      <div className="container mx-auto px-4 relative z-10 pt-8 md:pt-32 pb-24">
         {/* Header */}
         <div className="text-center mb-16 space-y-3 animate-fadeInUp">
           <p className="text-xs uppercase tracking-[0.3em] text-clay font-bold opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
@@ -70,9 +70,6 @@ const Projects: React.FC = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <p className="text-espresso/70 mb-6">
-            Want to see more projects and contributions?
-          </p>
           <a
             href="https://github.com/Montfort28"
             target="_blank"

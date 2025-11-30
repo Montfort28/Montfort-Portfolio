@@ -29,8 +29,8 @@ const Header: React.FC = () => {
 
   return (
     <>
-      {/* Floating Pill Navigation with Logo */}
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
+      {/* Floating Pill Navigation with Logo - Hidden on mobile */}
+      <nav className="hidden md:block fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
         <div className={`flex items-center gap-7 rounded-full backdrop-blur-xl border transition-all duration-500 ${scrolled
           ? 'px-4 py-3 space-x-2 bg-[#1a1a1a]/95 border-white/10 shadow-2xl'
           : 'px-6 py-4 space-x-4 bg-[#1a1a1a]/80 border-white/20'
@@ -63,11 +63,26 @@ const Header: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Toggle - Hidden on desktop */}
-      <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
+      {/* Mobile Header - Logo and Hamburger */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-gradient-to-r from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f] border-b border-white/10 z-50 flex items-center justify-between px-4 backdrop-blur-md">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="flex items-center group relative flex-shrink-0"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-clay to-clay/50 blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+            <span className="relative text-lg font-bold font-display bg-gradient-to-br from-clay via-ivory to-clay bg-clip-text text-transparent group-hover:from-ivory group-hover:via-clay group-hover:to-ivory transition-all duration-300">
+              MM
+            </span>
+          </div>
+        </Link>
+
+        {/* Hamburger Menu Button */}
         <button
-          className="md:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none group"
+          className="relative w-10 h-10 flex items-center justify-center focus:outline-none group"
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
           <div className="relative w-6 h-5">
             <span className={`absolute h-0.5 w-6 bg-gradient-to-r from-clay to-clay/50 transition-all duration-500 transform origin-center ${isMenuOpen ? 'rotate-45 top-2' : 'top-0'
@@ -80,9 +95,9 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <nav className="fixed md:hidden top-20 left-1/2 transform -translate-x-1/2 z-40 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border border-white/10 rounded-2xl w-80 shadow-2xl animate-slideInDown">
+        <nav className="fixed md:hidden top-16 left-0 right-0 z-40 bg-gradient-to-b from-[#1a1a1a] via-[#1a1a1a] to-[#0f0f0f] border-b border-white/10 shadow-2xl animate-slideInDown">
           <div className="px-4 py-6 space-y-2">
             {navItems.map((item, index) => (
               <Link
@@ -101,7 +116,7 @@ const Header: React.FC = () => {
                 </span>
               </Link>
             ))}
-          </div>
+            </div>
         </nav>
       )}
     </>
